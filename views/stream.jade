@@ -1,24 +1,24 @@
-each checkin in checkins
+each checkin in checkins.reverse()
   .checkin
     .mainline
       strong.user= checkin.user || 'Anonymous'
       if checkin.roastery || checkin.coffee
-        |  is drinking a cup of 
+        |  is drinking a 
         if checkin.roastery && checkin.coffee
           strong.roastery= checkin.roastery
-          | 's 
+          |  
         strong.coffee= checkin.coffee || checkin.roastery
+        if checkin.brew_method
+          |  
+          strong.brew_method= checkin.brew_method
       else
-        |  is having a tasty brew 
+        |  is having a  
+        strong.brew_method= checkin.brew_method
       if checkin.location
         |  at 
         strong.location= checkin.location
       | .
     .details
-      if checkin.brew_method
-        span
-          | Brew Method: 
-          strong.brew_method= checkin.brew_method
       if checkin.origin
         span
           | Origin:
