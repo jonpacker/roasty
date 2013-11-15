@@ -15,6 +15,7 @@
     "jade": "~0.35.0",
     "seraph": "~0.7.0",
     "seraph-resource": "~0.2.11",
-    "express": "~3.4.4"
+    "express": "~3.4.4",
+    "moment": "~2.4.0"
   }
 }
