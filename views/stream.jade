@@ -2,8 +2,11 @@ each checkin in checkins
   .checkin
     .mainline
       strong.user= checkin.user || 'Anonymous'
-      if checkin.origin || checkin.roastery
+      if checkin.roastery || checkin.coffee
         |  is drinking a cup of 
+        if checkin.roastery && checkin.coffee
+          strong.roastery= checkin.roastery
+          | 's 
         strong.coffee= checkin.coffee || checkin.roastery
       else
         |  is having a tasty brew 
@@ -20,10 +23,6 @@ each checkin in checkins
         span
           | Origin:
           strong.origin= checkin.origin
-      if checkin.coffee && checkin.origin
-        span
-          | Roastery:
-          strong.roastery= checkin.roastery
     if checkin.comment
       .comment= checkin.comment
     .time= checkin.pretty_age
