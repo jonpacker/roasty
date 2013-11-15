@@ -11,7 +11,7 @@ module.exports = function(db) {
     else callback();
   });
   CheckIn.addComputedField('pretty_age', function(checkin) {
-    var age = moment.duration(checkin.created - moment.unix(), 'seconds');
+    var age = moment.duration(checkin.created - moment().unix(), 'seconds');
     return age.humanize(true);
   });
 };
