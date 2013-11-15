@@ -1,3 +1,3 @@
 module.exports = function(app) {
-  require('./checkin')(app);
+  require('./check_in')(app);
 };
