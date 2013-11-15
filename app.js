@@ -1,9 +1,14 @@
 var http = require('http');
 var express = require('express');
 var stylus = require('stylus');
+var seraph = require('seraph');
 
 var app = express();
 var server = http.createServer(app);
+var db = seraph('http://localhost:7474');
+
+app.db = db;
+app.server = server;
 
 app.set('view engine', 'jade');
 app.use(stylus.middleware(function() {
@@ -12,8 +17,10 @@ app.use(stylus.middleware(function() {
     return stylus(str).set('filename', path).use(nib);
   };
 });
+app.use(express.bodyParser())
 
-app.use(require('./routes'));
+require('./models')(db);
+app.use(require('./routes')(app));
 
 
 server.listen(2020);
