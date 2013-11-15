@@ -11,12 +11,12 @@ app.db = db;
 app.server = server;
 
 app.set('view engine', 'jade');
-app.use(stylus.middleware(function() {
+app.use(stylus.middleware({
   src: __dirname + '/public',
   compile: function(str, path) {
     return stylus(str).set('filename', path).use(nib);
-  };
-});
+  }
+}));
 app.use(express.bodyParser())
 
 require('./models')(db);
