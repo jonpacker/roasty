@@ -7,5 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "stylus": "~0.40.2",
+    "nib": "~1.0.1",
+    "seraph-model": "~0.5.3",
+    "jade": "~0.35.0",
+    "seraph": "~0.7.0",
+    "seraph-resource": "~0.2.11",
+    "express": "~3.4.4"
+  }
 }
