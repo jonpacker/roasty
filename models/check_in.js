@@ -6,7 +6,7 @@ module.exports = function(db) {
                     'origin', 'user'];
   CheckIn.useTimestamps();
   CheckIn.addComputedField('pretty_age', function(checkin) {
-    var age = moment.duration(video.created - moment.unix(), 'seconds');
+    var age = moment.duration(checkin.created - moment.unix(), 'seconds');
     return age.humanize(true);
   });
 };
