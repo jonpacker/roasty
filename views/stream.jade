@@ -1,0 +1,27 @@
+each checkin in checkins
+  div.checkin
+    div.mainline
+      strong.user= checkin.user || 'Anonymous'
+      if checkin.origin || checkin.roastery
+        | is drinking a cup of
+        strong.coffee= checkin.coffee || checkin.roastery
+      else
+        is having a tasty brew at
+      if checkin.location
+        | at
+        strong.location= checkin.location
+    div.details
+      span
+        | Brew Method: 
+        strong.brew_method= checkin.brew_method
+      if 
+      span
+        | Origin:
+        strong.origin= checkin.origin
+      if checkin.coffee && checkin.origin
+        span
+          | Roastery:
+          strong.roastery= checkin.roastery
+    if checkin.comment
+      div.comment= checkin.comment
+
