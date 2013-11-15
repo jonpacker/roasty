@@ -2,6 +2,7 @@ var http = require('http');
 var express = require('express');
 var stylus = require('stylus');
 var seraph = require('seraph');
+var nib = require('nib');
 
 var app = express();
 var server = http.createServer(app);
@@ -20,7 +21,6 @@ app.use(stylus.middleware({
 app.use(express.bodyParser())
 
 require('./models')(db);
-app.use(require('./routes')(app));
-
+require('./routes')(app);
 
 server.listen(2020);
